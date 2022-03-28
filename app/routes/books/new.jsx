@@ -18,7 +18,7 @@ export async function action({ request }) {
 export default function CreateBook() {
   const actionData = useActionData();
   return (
-    <div>
+    <div className="pb-3 m-4">
       <h1>Create book</h1>
       <Form method="post">
         <label htmlFor="title" className="block">

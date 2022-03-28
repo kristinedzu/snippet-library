@@ -35,23 +35,23 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="bg-slate-100 text-slate-800 font-sans p-4">
-        <header className="pb-3 mb-4 border-b-2">
-          <p>Snippet library</p>
+      <body className="bg-slate-100 text-slate-800 font-sans grid grid-cols-[300px_1fr_1fr] gap-4">
+        <header className="p-4 bg-slate-800 min-h-screen">
+          <p className="text-slate-400 text-sm">Snippet library</p>
           <ul>
             <li>
-              <div className="ml-3 flex">
+              <div className="ml-3 flex text-slate-200">
                 <i class="ri-book-open-line"></i>
-                <Link to="/" className="ml-2 hover:underline text-blue-600">
+                <Link to="/" className="ml-2 hover:underline">
                   All snippets
                 </Link>
               </div>
             </li>
             <li>
-              <div className="ml-3 flex">
+              <div className="ml-3 flex text-slate-200">
                 <i class="ri-heart-line"></i>
-                <Link to="/" className="ml-2 hover:underline text-blue-600">
-                Favorite snippets
+                <Link to="/" className="ml-2 hover:underline">
+                  Favorite snippets
                 </Link>
               </div>
             </li>
@@ -60,19 +60,19 @@ export default function App() {
           <br />
           
           <ul>
-            <p>Coding languages</p>
+            <p className="text-slate-400 text-sm">Coding languages</p>
             <li>
-              <div className="ml-3 flex">
+              <div className="ml-3 flex text-slate-200">
                 <i class="ri-code-line"></i>
-                <Link to="/" className="ml-2 hover:underline text-blue-600">
+                <Link to="/" className="ml-2 hover:underline">
                   JavaScript
                 </Link>
               </div>
             </li>
             <li>
-              <div className="ml-3 flex">
+              <div className="ml-3 flex text-slate-200">
                 <i class="ri-code-line"></i>
-                <Link to="/" className="ml-2 hover:underline text-blue-600">
+                <Link to="/" className="ml-2 hover:underline">
                   React
                 </Link>
               </div>
@@ -82,12 +82,12 @@ export default function App() {
           <br />
 
           <ul>
-            <p>Add new snippet</p>
+            <p className="text-slate-400 text-sm">Add new snippet</p>
             <li>
-              <div className="ml-3 flex">
+              <div className="ml-3 flex text-slate-200">
               <i class="ri-add-line"></i>
-                <Link to="/books/new" className="ml-2 hover:underline text-blue-600">
-                  New book
+                <Link to="/books/new" className="ml-2 hover:underline">
+                  New snippet
                 </Link>
               </div>
             </li>
