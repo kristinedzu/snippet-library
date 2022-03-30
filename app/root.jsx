@@ -41,7 +41,7 @@ export default function App() {
           <ul>
             <li>
               <div className="ml-3 flex text-slate-200">
-                <i class="ri-book-open-line"></i>
+                <i className="ri-book-open-line"></i>
                 <Link to="/" className="ml-2 hover:underline">
                   All snippets
                 </Link>
@@ -49,8 +49,8 @@ export default function App() {
             </li>
             <li>
               <div className="ml-3 flex text-slate-200">
-                <i class="ri-heart-line"></i>
-                <Link to="/" className="ml-2 hover:underline">
+                <i className="ri-heart-line"></i>
+                <Link to="/snippets/favorite" className="ml-2 hover:underline">
                   Favorite snippets
                 </Link>
               </div>
@@ -63,7 +63,7 @@ export default function App() {
             <p className="text-slate-400 text-sm">Coding languages</p>
             <li>
               <div className="ml-3 flex text-slate-200">
-                <i class="ri-code-line"></i>
+                <i className="ri-code-line"></i>
                 <Link to="/" className="ml-2 hover:underline">
                   JavaScript
                 </Link>
@@ -71,7 +71,7 @@ export default function App() {
             </li>
             <li>
               <div className="ml-3 flex text-slate-200">
-                <i class="ri-code-line"></i>
+                <i className="ri-code-line"></i>
                 <Link to="/" className="ml-2 hover:underline">
                   React
                 </Link>
@@ -85,8 +85,8 @@ export default function App() {
             <p className="text-slate-400 text-sm">Add new snippet</p>
             <li>
               <div className="ml-3 flex text-slate-200">
-              <i class="ri-add-line"></i>
-                <Link to="/books/new" className="ml-2 hover:underline">
+              <i className="ri-add-line"></i>
+                <Link to="/snippets/new" className="ml-2 hover:underline">
                   New snippet
                 </Link>
               </div>
