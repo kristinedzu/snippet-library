@@ -12,9 +12,9 @@ export default function Index() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-4">All snippets</h1>
+      <h1 className="text-2xl font-bold mb-4">My favorite snippets</h1>
       <ul className="ml-5 list-disc">
-        {snippets.map((snippet) => {
+        {snippets.filter(snippet => snippet.favorite === true).map((snippet) => {
           return (
             <li key={snippet._id}>
               <Link

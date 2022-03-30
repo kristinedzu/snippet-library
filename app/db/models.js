@@ -2,7 +2,7 @@ import { mongoose } from "mongoose";
 
 const { Schema } = mongoose;
 
-const bookSchema = new Schema({
+const snippetSchema = new Schema({
   title: {
     type: String,
     required: true,
@@ -12,8 +12,8 @@ const bookSchema = new Schema({
 
 export const models = [
   {
-    name: "Book",
-    schema: bookSchema,
-    collection: "books",
+    name: "Snippet",
+    schema: snippetSchema,
+    collection: "snippets",
   },
 ];
