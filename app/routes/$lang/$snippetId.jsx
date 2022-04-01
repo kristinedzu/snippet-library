@@ -26,6 +26,9 @@ export async function action({ request, params }) {
       await snippet.save();
       console.log(snippet.favorite);
       return null;
+    case "update":
+      await db.models.Snippet.findByIdAndUpdate(params.snippetId, { title: formData.get("title"), lang: formData.get("lang"), code: formData.get("code"), description: formData.get("description") });
+      return null;
   }
 }
 

@@ -18,7 +18,7 @@ export async function action({ request }) {
 export default function CreateSnippet() {
   const actionData = useActionData();
   return (
-    <div className="pb-3 m-4">
+    <div className="pt-7 pb-3 m-4">
       <h1 className="text-2xl font-bold mb-4">Add new snippet</h1>
       <Form method="post">
         <label htmlFor="title" className="block">
