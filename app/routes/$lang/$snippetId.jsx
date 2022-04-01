@@ -1,5 +1,6 @@
-import { useLoaderData, useCatch, useFormAction, json, redirect, Form } from "remix";
+import { useLoaderData, useCatch, json, redirect } from "remix";
 import connectDb from "~/db/connectDb.server.js";
+import SnippetPage from "~/routes/snippets/$snippetId.jsx";
 
 export async function loader({ params }) {
   const db = await connectDb();
@@ -28,36 +29,10 @@ export async function action({ request, params }) {
   }
 }
 
-
-export default function SnippetPage() {
+export default function Page() {
   const snippet = useLoaderData();
-  console.log(snippet.favorite);
-    
   return (
-    <div className=" mb-4">
-      <div className="flex items-center">
-        <h2 className="text-2xl font-bold pr-4">{snippet.title}</h2>
-        <Form method="post">
-          <input type="hidden" name="_method" value="favorite" />
-          <button type="submit" className="btn btn-delete">
-            <i className={snippet.favorite === true ? "ri-heart-fill" : "ri-heart-line"}></i>
-            {/* <i className="ri-heart-fill"></i> */}
-          </button>
-        </Form>
-      </div>
-      <code>
-        <pre className="whitespace-pre-wrap">{JSON.stringify(snippet, null, 2)}</pre>
-        {/* <div className="whitespace-pre-wrap">
-          <pre >{snippet.code}</pre>
-        </div> */}
-      </code>
-      <Form method="post">
-          <input type="hidden" name="_method" value="delete" />
-          <button type="submit" className="btn btn-delete">
-            Delete
-          </button>
-        </Form>
-    </div>
+    <SnippetPage />
   );
 }
 
