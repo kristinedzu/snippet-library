@@ -25,38 +25,95 @@ export async function action({ request, params }) {
       await snippet.save();
       console.log(snippet.favorite);
       return null;
+    case "update":
+      await db.models.Snippet.findByIdAndUpdate(params.snippetId, { title: formData.get("title"), lang: formData.get("lang"), code: formData.get("code"), description: formData.get("description") });
+      return null;
   }
 }
 
 
 export default function SnippetPage() {
   const snippet = useLoaderData();
-  console.log(snippet.favorite);
     
   return (
-    <div className=" mb-4">
-      <div className="flex items-center">
+    <div className="mb-4">
+      <div className="flex flex-wrap items-center content-center">
         <h2 className="text-2xl font-bold pr-4">{snippet.title}</h2>
-        <Form method="post">
+        <Form method="post" className="">
           <input type="hidden" name="_method" value="favorite" />
-          <button type="submit" className="btn btn-delete">
+          <button type="submit" className="text-2xl btn-secondary">
             <i className={snippet.favorite === true ? "ri-heart-fill" : "ri-heart-line"}></i>
-            {/* <i className="ri-heart-fill"></i> */}
           </button>
         </Form>
       </div>
+      <div className="py-8">
+        <label className="font-bold">Coding language:</label>
+        <p className="pb-4">{snippet.lang}</p>
+        <label className="font-bold">Description:</label>
+        <p>{snippet.description}</p>
+      </div>
       <code>
-        <pre className="whitespace-pre-wrap">{JSON.stringify(snippet, null, 2)}</pre>
-        {/* <div className="whitespace-pre-wrap">
-          <pre >{snippet.code}</pre>
-        </div> */}
+        <pre><textarea className="p-4 w-5/6 height whitespace-pre-wrap outline-none bg-white" name="" id="" cols="30" rows="10" readOnly value={snippet.code}></textarea></pre>
       </code>
-      <Form method="post">
-          <input type="hidden" name="_method" value="delete" />
-          <button type="submit" className="btn btn-delete">
-            Delete
-          </button>
+      <div className="flex flex-wrap py-4">
+        
+        <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu"/>
+        <label for="openSidebarMenu" class="sidebarIconToggle"></label>
+        <div id="sidebarMenu" className="p-6 bg-slate-300 min-h-screen">
+          <h1 className="text-2xl font-bold mb-4">Add new snippet</h1>
+            <Form method="post">
+              <input type="hidden" name="_method" value="update" />
+              <label htmlFor="title" className="block">
+                Snippet title
+              </label>
+              <input
+                type="text"
+                name="title"
+                defaultValue={snippet.title}
+                id="title"
+              />
+              <label htmlFor="lang" className="block">
+                Coding language
+              </label>
+              <input
+                type="text"
+                name="lang"
+                defaultValue={snippet.lang}
+                id="lang"
+              />
+              <label htmlFor="code" className="block">
+                Code snippet
+              </label>
+              <textarea
+                type="text"
+                name="code"
+                defaultValue={snippet.code}
+                id="code"
+              />
+              <label htmlFor="description" className="block">
+                Description
+              </label>
+              <textarea
+                type="text"
+                name="description"
+                defaultValue={snippet.description}
+                id="description"
+              />
+              <br />
+              
+              <button  type="submit" className="my-4 btn-primary hover:bg-teal-800 text-white py-2 px-4 rounded">Save</button>
+            </Form>
+        </div>
+        <button type="submit" className="btn-primary hover:bg-teal-800 text-white py-2 px-4 rounded">
+          Edit
+        </button>
+        <Form method="post">
+            <input type="hidden" name="_method" value="delete" />
+            <button type="submit" className="mx-4 btn-delete hover:bg-red-900 text-white py-2 px-4 rounded flex flex-wrap">
+            <i className="ri-delete-bin-line px-1"></i> Delete
+            </button>
         </Form>
+      </div>
     </div>
   );
 }

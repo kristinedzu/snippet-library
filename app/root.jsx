@@ -9,12 +9,17 @@ import {
   useLoaderData
 } from "remix";
 import styles from "~/tailwind.css";
+import customStyles from "~/custom.css";
 import connectDb from "~/db/connectDb.server.js";
 
 export const links = () => [
   {
     rel: "stylesheet",
     href: styles,
+  },
+  {
+    rel: "stylesheet",
+    href: customStyles,
   },
   {
     rel: "stylesheet",
@@ -52,7 +57,9 @@ export default function App() {
       </head>
       <body className="bg-slate-100 text-slate-800 font-sans grid grid-cols-[300px_1fr] gap-4">
         <header className="p-6 bg-slate-800 min-h-screen">
-          <img class="w-11/12 mt-4 mb-10" src="/images/logo.png" alt="" />
+          <a href="/">
+            <img class="w-11/12 mt-4 mb-10" src="/images/logo.png" alt="" />
+          </a>
           <p className="text-slate-400 text-sm">Snippet library</p>
           <ul>
             <li>
