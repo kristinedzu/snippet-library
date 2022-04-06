@@ -53,55 +53,55 @@ export default function SnippetPage() {
         <p>{snippet.description}</p>
       </div>
       <code>
-        <pre><textarea className="p-4 w-5/6 height whitespace-pre-wrap outline-none bg-white" name="" id="" cols="30" rows="10" readOnly value={snippet.code}></textarea></pre>
+        <pre><textarea className="p-4 w-5/6 height whitespace-pre-wrap outline-none bg-white" name="" cols="30" rows="10" readOnly value={snippet.code}></textarea></pre>
       </code>
       <div className="flex flex-wrap py-4">
-        
-        <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu"/>
-        <label for="openSidebarMenu" class="sidebarIconToggle"></label>
-        <div id="sidebarMenu" className="p-6 bg-slate-300 min-h-screen">
-          <h1 className="text-2xl font-bold mb-4">Add new snippet</h1>
-            <Form method="post">
+        <input type="checkbox" className="openSidebarMenu open" id="openSidebarMenu"/>
+        <label htmlFor="openSidebarMenu" className="sidebarIconToggle"></label>
+        <div id="sidebarMenu" className="p-6 bg-slate-300 min-h-screen ">
+            <Form method="post" className="flex flex-col w-10/12 mx-auto mt-6">
+              <h2 className="text-2xl font-bold mb-4">Edit snippet</h2>
               <input type="hidden" name="_method" value="update" />
-              <label htmlFor="title" className="block">
+              <label htmlFor="title" className="">
                 Snippet title
               </label>
               <input
                 type="text"
                 name="title"
                 defaultValue={snippet.title}
-                id="title"
+                className="mb-4 text-slate-600 p-2"
               />
-              <label htmlFor="lang" className="block">
+              <label htmlFor="lang" className="">
                 Coding language
               </label>
               <input
                 type="text"
                 name="lang"
                 defaultValue={snippet.lang}
-                id="lang"
+                className="mb-4 text-slate-600 p-2"
               />
-              <label htmlFor="code" className="block">
+              <label htmlFor="code" className="">
                 Code snippet
               </label>
               <textarea
                 type="text"
                 name="code"
                 defaultValue={snippet.code}
-                id="code"
+                className="mb-4 text-slate-600 p-2 code"
               />
-              <label htmlFor="description" className="block">
+              <label htmlFor="description" className="">
                 Description
               </label>
               <textarea
                 type="text"
                 name="description"
                 defaultValue={snippet.description}
-                id="description"
+                className="text-slate-600 p-2"
               />
               <br />
-              
-              <button  type="submit" className="my-4 btn-primary hover:bg-teal-800 text-white py-2 px-4 rounded">Save</button>
+              <div>
+                <button  type="submit" className="my-4 btn-primary hover:bg-teal-800 text-white py-2 px-4 rounded">Save</button>
+              </div>
             </Form>
         </div>
         <button type="submit" className="btn-primary hover:bg-teal-800 text-white py-2 px-4 rounded">
