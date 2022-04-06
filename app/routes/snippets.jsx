@@ -18,16 +18,16 @@ export default function Index() {
   return (
     <div className="pt-7 pb-3 m-4 grid xl:grid-cols-[400px_1fr] gap-4 grid-cols-1">
       <div>
-        <h1 className="text-2xl font-bold mb-4">All snippets</h1>
+        <h1 className="text-2xl font-bold mb-10">All snippets</h1>
 
         <Form method="GET">
-          <input onChange={e => submit(e.currentTarget.form)} type="text" name="query" placeholder="Search.." />
+          <input onChange={e => submit(e.currentTarget.form)} type="text" name="query" placeholder="Search..." className="mb-4 text-slate-600 p-2 w-96"/>
         </Form>
 
         <ul className="ml-5 list-disc">
           {snippets.map((snippet) => {
             return (
-              <li key={snippet._id} className="list-none ">
+              <li key={snippet._id} className="list-none py-1">
                 <Link
                   to={`/snippets/${snippet._id}`}
                   className="text-blue-600 hover:underline">

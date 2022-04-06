@@ -59,7 +59,7 @@ export default function App() {
       <body className="bg-slate-100 text-slate-800 font-sans grid grid-cols-[300px_1fr] gap-4">
         <header className="p-6 bg-slate-800 min-h-screen">
           <a href="/snippets">
-            <img class="w-11/12 mt-4 mb-10" src="/images/logo.png" alt="" />
+            <img className="w-11/12 mt-4 mb-10" src="/images/logo.png" alt="" />
           </a>
           <p className="text-slate-400 text-sm">Snippet library</p>
           <ul>

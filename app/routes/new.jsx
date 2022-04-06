@@ -19,7 +19,7 @@ export default function CreateSnippet() {
   const actionData = useActionData();
   return (
     <div className="pt-7 pb-3 m-4">
-      <h1 className="text-2xl font-bold mb-4">Add new snippet</h1>
+      <h1 className="text-2xl font-bold mb-10">Add new snippet</h1>
       <Form method="post">
         <label htmlFor="title" className="block">
           Snippet title
@@ -30,7 +30,7 @@ export default function CreateSnippet() {
           defaultValue={actionData?.values.title}
           id="title"
           className={
-            actionData?.errors.title ? "border-2 border-red-500" : null
+            actionData?.errors.title ? "border-2 border-red-500 mb-4 text-slate-600 p-2 w-96" : "mb-4 text-slate-600 p-2 w-96"
           }
         />
         {actionData?.errors.title && (
@@ -45,7 +45,7 @@ export default function CreateSnippet() {
           defaultValue={actionData?.values.lang}
           id="lang"
           className={
-            actionData?.errors.lang ? "border-2 border-red-500" : null
+            actionData?.errors.lang ? "border-2 border-red-500 mb-4 text-slate-600 p-2 w-96" : "mb-4 text-slate-600 p-2 w-96"
           }
         />
         {actionData?.errors.lang && (
@@ -60,7 +60,7 @@ export default function CreateSnippet() {
           defaultValue={actionData?.values.code}
           id="code"
           className={
-            actionData?.errors.code ? "border-2 border-red-500" : null
+            actionData?.errors.code ? "border-2 border-red-500 mb-4 text-slate-600 p-2 code w-96" : "mb-4 text-slate-600 p-2 code w-96"
           }
         />
         {actionData?.errors.code && (
@@ -75,7 +75,7 @@ export default function CreateSnippet() {
           defaultValue={actionData?.values.description}
           id="description"
           className={
-            actionData?.errors.description ? "border-2 border-red-500" : null
+            actionData?.errors.description ? "border-2 border-red-500 mb-4 text-slate-600 p-2 w-96" : "mb-4 text-slate-600 p-2 w-96"
           }
         />
         {actionData?.errors.description && (
@@ -83,7 +83,7 @@ export default function CreateSnippet() {
         )}
         <br />
 
-        <button type="submit">Add</button>
+        <button type="submit" className="btn-primary hover:bg-teal-800 text-white py-2 px-4 rounded">Add</button>
       </Form>
     </div>
   );

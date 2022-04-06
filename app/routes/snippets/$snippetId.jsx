@@ -1,5 +1,6 @@
 import { useLoaderData, useCatch, useFormAction, json, redirect, Form } from "remix";
 import connectDb from "~/db/connectDb.server.js";
+import copyCode from  "~/components/copy.js";
 
 export async function loader({ params }) {
   const db = await connectDb();
@@ -53,7 +54,12 @@ export default function SnippetPage() {
         <p>{snippet.description}</p>
       </div>
       <code>
-        <pre><textarea className="p-4 w-5/6 height whitespace-pre-wrap outline-none bg-white" name="" cols="30" rows="10" readOnly value={snippet.code}></textarea></pre>
+        <pre>
+          <div className="relative w-5/6">
+          <textarea className="py-4 pl-4 pr-10 w-full height whitespace-pre-wrap outline-none bg-white" id="codeSnippet" cols="30" rows="10" readOnly value={snippet.code}></textarea>
+          <button type="button" onClick={copyCode} className="copyButton text-2xl"><i className="ri-clipboard-line" id="copy-to"></i></button>
+          </div>
+        </pre>
       </code>
       <div className="flex flex-wrap py-4">
         <input type="checkbox" className="openSidebarMenu open" id="openSidebarMenu"/>
