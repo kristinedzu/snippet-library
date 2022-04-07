@@ -24,10 +24,10 @@ export default function Index() {
           <input onChange={e => submit(e.currentTarget.form)} type="text" name="query" placeholder="Search..." className="mb-4 text-slate-600 p-2 w-96"/>
         </Form>
 
-        <ul className="ml-5 list-disc">
+        <ul className="mt-5 list-disc">
           {snippets.map((snippet) => {
             return (
-              <li key={snippet._id} className="list-none py-1">
+              <li key={snippet._id} className="list-none p-2 border-l">
                 <Link
                   to={`/snippets/${snippet._id}`}
                   className="text-blue-600 hover:underline">
